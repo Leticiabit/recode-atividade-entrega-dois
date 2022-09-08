@@ -1,42 +1,42 @@
-package br.com.viagens.dao;
+package br.com.viagem.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import br.com.viagens.factory.ConnectionFactory;
-import br.com.viagens.model.Viagens;
- 
-public class ViagensDAO {
+import br.com.viagem.factory.ConnectionFactory;
+import br.com.viagem.model.Viagem;
 
-	public void save(Viagens contato){
-		
+public class ViagemDAO {
+
+	public void save(Viagem contato) {
+
 		String sql = "INSERT INTO Viagem(id_cliente, id_destino) VALUES (?, ?)";
 
 		Connection conn = null;
 		PreparedStatement pstm = null;
-		
+
 		try {
 			conn = ConnectionFactory.createConnectionToMySQL();
 			pstm = (PreparedStatement) conn.prepareStatement(sql);
 			pstm.setInt(1, contato.getId_cliente());
 			pstm.setInt(2, contato.getId_destino());
-			
+
 			pstm.execute();
-			
+
 			System.out.println("Registro salvo com sucesso!");
-			
-		}catch (Exception e){
+
+		} catch (Exception e) {
 			e.printStackTrace();
-			
+
 		} finally {
-			
+
 			try {
-				
-				if(pstm!=null) {
+
+				if (pstm != null) {
 					pstm.close();
 				}
-				
-				if(conn!=null) {
+
+				if (conn != null) {
 					conn.close();
 				}
 			} catch (Exception e) {
