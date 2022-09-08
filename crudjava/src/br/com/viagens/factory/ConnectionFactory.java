@@ -1,26 +1,24 @@
-package br.com.viagens.factory;
+package br.com.viagem.factory;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class ConnectionFactory {
 	
-	// Nome do usuario mysql
+	
+	// Nome, senha e URL do mysql
 	private static final String USERNAME = "root";
-	
-	//senha banco
 	private static final String PASSWORD = "E7g7PRZvtsstrFF";
-	
-	//Caminho do banco de dados, porta, nome
-	private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/crud_atividade";
-	
-	//Conexão banco de dados
-	public static Connection createConnectionToMySQL() throws Exception {
+	private static final String URL = "jdbc:mysql://localhost:3306/crud_atividade";
+    private static Connection connection;
+
+	public static Connection createConnectionToMySQL() throws SQLException {
 		
-		Class.forName("com.mysql.jdbc.Driver");
-		
-		Connection connection = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD);
-		
+// Class.forName("com.mysql.jdbc.cj.Driver");
+//		Connection connection = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD);
+		connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+
 		return connection;
 	}	
 	
