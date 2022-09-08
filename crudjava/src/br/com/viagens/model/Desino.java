@@ -1,6 +1,6 @@
-package br.com.viagens.model;
+package br.com.viagem.model;
 
-public class Desino {
+public class Destino {
 	
 	private String pais;
 	private String cidade;
@@ -30,6 +30,5 @@ public class Desino {
 	}
 	public void setId_destino(int id_destino) {
 		this.id_destino = id_destino;
-	}
-	
+	}	
 }
