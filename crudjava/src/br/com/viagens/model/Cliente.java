@@ -1,6 +1,6 @@
-package br.com.viagens.model;
+package br.com.viagem.model;
 
-public class Clientes {
+public class Cliente {
 	
 	private String nome;
 	private String celular;
@@ -30,6 +30,5 @@ public class Clientes {
 	}
 	public void setId_cliente(int id_cliente) {
 		this.id_cliente = id_cliente;
-	}
-	
+	}	
 }
