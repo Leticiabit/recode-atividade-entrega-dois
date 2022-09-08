@@ -1,14 +1,14 @@
-package br.com.viagens.dao;
+package br.com.viagem.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import br.com.viagens.factory.ConnectionFactory;
-import br.com.viagens.model.Viagens;
+import br.com.viagem.factory.ConnectionFactory;
+import br.com.viagem.model.Cliente;
 
-public class ClientesDAO {
+public class ClienteDAO {
 
-public void save(Viagens contato){
+	public void save(Cliente contato){
 		
 		String sql = "INSERT INTO Cliente(nome, celular, email) VALUES (?, ?, ?)";
 
@@ -20,7 +20,7 @@ public void save(Viagens contato){
 			pstm = (PreparedStatement) conn.prepareStatement(sql);
 			pstm.setString(1, contato.getNome());
 			pstm.setString(2, contato.getCelular());
-			pstm.setInt(3, contato.getId_cliente());
+			pstm.setString(3, contato.getEmail());
 			
 			pstm.execute();
 			
@@ -45,5 +45,4 @@ public void save(Viagens contato){
 			}
 		}
 	}
-
 }
